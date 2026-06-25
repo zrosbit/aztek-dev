@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Users, ShieldCheck, BarChart3, Clock, Plus, ArrowUpRight, Search, Bell, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
+import { TrendingUp } from "lucide-react"
 
 export default function PartnerNexusDashboard() {
   const kpis = [

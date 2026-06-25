@@ -1,0 +1,95 @@
+
+{
+  "entities": {
+    "Partner": {
+      "title": "Partner",
+      "description": "Certified AZTEK installation partner profile",
+      "type": "object",
+      "properties": {
+        "businessName": { "type": "string" },
+        "ownerName": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "tier": { "type": "string", "enum": ["Certified Installer", "Gold Partner", "Master Installer"] },
+        "status": { "type": "string", "enum": ["Active", "Suspended", "Pending"] },
+        "joinDate": { "type": "string", "format": "date-time" },
+        "revenueYTD": { "type": "number" },
+        "warrantyCount": { "type": "number" }
+      },
+      "required": ["businessName", "tier", "status"]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "Inbound customer enquiry for protection services",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "location": { "type": "string" },
+        "vehicleType": { "type": "string" },
+        "productInterest": { "type": "string", "enum": ["Automotive PPF", "Moto Shield", "Architectural Solar", "Ceramic Coating"] },
+        "status": { "type": "string", "enum": ["New", "Contacted", "Quote Sent", "Won", "Lost"] },
+        "estimatedValue": { "type": "number" },
+        "assignedPartnerId": { "type": "string" },
+        "source": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "phone", "status"]
+    },
+    "Quote": {
+      "title": "Quote",
+      "description": "Itemized commercial quotation",
+      "type": "object",
+      "properties": {
+        "quoteNumber": { "type": "string" },
+        "partnerId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "subtotal": { "type": "number" },
+        "taxTotal": { "type": "number" },
+        "total": { "type": "number" },
+        "status": { "type": "string", "enum": ["DRAFT", "SENT", "ACCEPTED", "EXPIRED", "CONVERTED"] },
+        "validUntil": { "type": "string", "format": "date" }
+      },
+      "required": ["quoteNumber", "total", "status"]
+    },
+    "SalesOrder": {
+      "title": "Sales Order",
+      "description": "Confirmed project booking",
+      "type": "object",
+      "properties": {
+        "orderNumber": { "type": "string" },
+        "quoteId": { "type": "string" },
+        "partnerId": { "type": "string" },
+        "status": { "type": "string", "enum": ["CONFIRMED", "ALLOCATION", "READY", "FULFILLED"] },
+        "totalAmount": { "type": "number" }
+      },
+      "required": ["orderNumber", "status"]
+    },
+    "Invoice": {
+      "title": "Invoice",
+      "description": "GST-compliant billing document",
+      "type": "object",
+      "properties": {
+        "invoiceNumber": { "type": "string" },
+        "orderId": { "type": "string" },
+        "partnerId": { "type": "string" },
+        "amountDue": { "type": "number" },
+        "amountPaid": { "type": "number" },
+        "status": { "type": "string", "enum": ["ISSUED", "PARTIALLY_PAID", "PAID", "OVERDUE"] },
+        "dueDate": { "type": "string", "format": "date" }
+      },
+      "required": ["invoiceNumber", "status"]
+    }
+  },
+  "auth": {
+    "providers": ["password", "google"]
+  },
+  "firestore": {
+    "/partners/{partnerId}": { "schema": "Partner", "description": "Partner profiles" },
+    "/leads/{leadId}": { "schema": "Lead", "description": "Customer leads" },
+    "/quotes/{quoteId}": { "schema": "Quote", "description": "Commercial quotations" },
+    "/orders/{orderId}": { "schema": "SalesOrder", "description": "Confirmed sales orders" },
+    "/invoices/{invoiceId}": { "schema": "Invoice", "description": "Financial invoices" }
+  }
+}

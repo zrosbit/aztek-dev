@@ -1,0 +1,40 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Premium automotive protection film installation on a luxury car",
+      "imageUrl": "https://picsum.photos/seed/aztek1/1920/1080",
+      "imageHint": "luxury car ppf"
+    },
+    {
+      "id": "moto-pattern",
+      "description": "Technical motorcycle pattern illustration",
+      "imageUrl": "https://picsum.photos/seed/moto1/600/400",
+      "imageHint": "motorcycle blueprint"
+    },
+    {
+      "id": "architectural-film",
+      "description": "Modern building with high-performance window film",
+      "imageUrl": "https://picsum.photos/seed/arch1/800/600",
+      "imageHint": "modern skyscraper glass"
+    },
+    {
+      "id": "solution-auto",
+      "description": "Luxury black sedan with premium finish",
+      "imageUrl": "https://picsum.photos/seed/auto1/800/600",
+      "imageHint": "luxury car"
+    },
+    {
+      "id": "solution-moto",
+      "description": "High-performance superbike with custom fairings",
+      "imageUrl": "https://picsum.photos/seed/moto2/800/600",
+      "imageHint": "superbike"
+    },
+    {
+      "id": "solution-arch",
+      "description": "Close-up of a modern building's curved glass facade",
+      "imageUrl": "https://picsum.photos/seed/arch2/800/600",
+      "imageHint": "modern architecture"
+    }
+  ]
+}

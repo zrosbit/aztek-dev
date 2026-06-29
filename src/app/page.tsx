@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link"
 import solArch from "./img/sol-arch-HK8pbRH6.jpg";
 import MotoImg from "./img/sol-moto-WL7sRVal.jpg";
@@ -31,11 +33,45 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { SiteHeader } from "@/components/layout/site-header"
+import { useState, useEffect } from "react";
 import Image from "next/image"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { cn } from "@/lib/utils"
 
 export default function LandingPage() {
+
+  const heroSlides = [
+  {
+    image: BannerC,
+    title: "Protection For Every Surface",
+    subtitle:
+      "Advanced surface protection solutions for automotive, motorcycle and architecture.",
+  },
+  {
+    image: carP,
+    title: "Engineered For Performance",
+    subtitle:
+      "Premium paint protection systems built for luxury and performance vehicles.",
+  },
+  {
+    image: MotoCycle,
+    title: "Built For The Future",
+    subtitle:
+      "Industry-leading protection technologies trusted by professionals worldwide.",
+  },
+];
+
+const [currentSlide, setCurrentSlide] = useState(0);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  }, 5000);
+
+  return () => clearInterval(timer);
+}, []);
+
+
   const stats = [
     { label: "Years Experience", val: "10+" },
     { label: "Certified Studios", val: "500+" },
@@ -95,39 +131,83 @@ image: MotoImg,
 
       <main className="flex-1">
         {/* Cinematic Hero */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0A0A0A]">
-          <div className="absolute inset-0 z-0">
-            <Image 
-              src= {BannerC}
-              alt="AZTEK Pro Hero"
-              fill
-              className="object-cover opacity-50 grayscale"
-              priority
-              data-ai-hint="luxury car ppf"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-          </div>
-          
-          <div className="max-w-7xl mx-auto px-8 relative z-10 text-center space-y-12">
-            <div className="space-y-6 animate-reveal-up">
-              <h2 className="text-7xl md:text-[9rem] font-headline font-bold tracking-tighter leading-[0.8] uppercase text-gradient">
-                Protection <span className="text-primary italic"> for </span> <br /> every surface
-              </h2>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
-                AZTEK Pro deliver advanced surface protection solutions that redefine industry standards for automotive, motorcycle and architecture.
-              </p>
-            </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8 animate-reveal-up [animation-delay:200ms]">
-              <Button size="lg" asChild className="btn-electric h-16 px-14 text-[11px] rounded-full text-white">
-                <Link href="/partners/apply">Become a Partner <ChevronRight className="ml-2 w-5 h-5" /></Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="h-16 px-14 text-[11px] font-bold uppercase tracking-widest border-white/10 hover:bg-white/5 rounded-full">
-                <Link href="/solutions/automotive">Explore Solutions</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+<section className="relative h-screen overflow-hidden bg-black">
+  {heroSlides.map((slide, index) => (
+    <div
+      key={index}
+      className={`absolute inset-0 transition-all duration-[2500ms] ${
+        index === currentSlide
+          ? "opacity-100 scale-100"
+          : "opacity-0 scale-110"
+      }`}
+    >
+      <Image
+        src={slide.image}
+        alt={slide.title}
+        fill
+        priority
+        className="object-cover"
+      />
+
+      <div className="absolute inset-0 bg-black/50" />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-transparent" />
+    </div>
+  ))}
+
+  <div className="relative z-20 h-full flex items-center justify-center">
+    <div className="max-w-7xl mx-auto px-8 text-center">
+      <div className="space-y-8">
+        <h1 className="text-6xl md:text-[8rem] font-headline font-bold tracking-tight uppercase leading-[0.9] text-white">
+          {heroSlides[currentSlide].title}
+        </h1>
+
+        <p className="max-w-3xl mx-auto text-lg md:text-2xl text-white/80">
+          {heroSlides[currentSlide].subtitle}
+        </p>
+
+        <div className="flex flex-col sm:flex-row justify-center gap-6 pt-6">
+          <Button
+            size="lg"
+            asChild
+            className="h-16 px-14 rounded-full"
+          >
+            <Link href="/partners/apply">
+              Become A Partner
+            </Link>
+          </Button>
+
+          <Button
+            variant="outline"
+            size="lg"
+            asChild
+            className="h-16 px-14 rounded-full border-white text-white hover:bg-white hover:text-black"
+          >
+            <Link href="/solutions/automotive">
+              Explore Solutions
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+    {heroSlides.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentSlide(index)}
+        className={`h-2 rounded-full transition-all ${
+          currentSlide === index
+            ? "w-10 bg-white"
+            : "w-2 bg-white/40"
+        }`}
+      />
+    ))}
+  </div>
+</section>
+
 
         {/* Stats Bar */}
         <section className="py-20 bg-background border-b border-white/5">

@@ -5,9 +5,5 @@
 // }
 
 export default function DashboardPage() {
-  return (
-    <div>
-      Dashboard Home
-    </div>
-  );
+  return <div>Dashboard Home</div>;
 }

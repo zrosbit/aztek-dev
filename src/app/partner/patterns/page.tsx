@@ -1,2 +1,2 @@
-import PatternsLibraryPage from "@/app/(dashboard)/patterns/page";
+import PatternsLibraryPage from "@/app/dashboard/patterns/page";
 export default PatternsLibraryPage;

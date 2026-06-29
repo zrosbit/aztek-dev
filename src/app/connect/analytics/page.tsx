@@ -1,2 +1,2 @@
-import ForecastingPage from "@/app/(dashboard)/analytics/page";
+import ForecastingPage from "@/app/dashboard/analytics/page";
 export default ForecastingPage;

@@ -88,7 +88,7 @@ export default function MotoPage() {
               src={banner1} 
               alt="Motorcycle Protection" 
               fill 
-              className="object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000"
+              className="object-cover opacity-60 group-hover:grayscale-0 transition-all duration-1000"
               data-ai-hint="superbike"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />

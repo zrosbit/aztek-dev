@@ -88,7 +88,7 @@ export default function AutomotiveSolutionPage() {
               src={carP} 
               alt="Automotive Protection" 
               fill 
-              className="object-cover opacity-40 grayscale group-hover:grayscale-0 transition-all duration-1000"
+              className="object-cover opacity-100 group-hover:grayscale-0 transition-all duration-1000"
               data-ai-hint="luxury car"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
@@ -98,7 +98,7 @@ export default function AutomotiveSolutionPage() {
             <Badge variant="outline" className="px-6 py-2 border-primary/30 text-primary bg-primary/5 uppercase tracking-[0.4em] font-bold text-[10px] rounded-full">
               National Protection Standard
             </Badge>
-            <h1 className="text-6xl md:text-[8rem] font-headline font-bold uppercase tracking-tighter leading-none text-gradient">
+            <h1 className="text-6xl md:text-[8rem] font-headline font-extralight uppercase tracking-tight leading-none text-gradient">
               Automotive <br /><span className="text-primary italic">Protection</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">

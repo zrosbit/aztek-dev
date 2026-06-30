@@ -76,7 +76,7 @@ export default function ArchitecturalSolutionPage() {
               src={a2} 
               alt="Architectural Protection" 
               fill 
-              className="object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000"
+              className="object-cover opacity-100 group-hover:grayscale-0 transition-all duration-1000"
               data-ai-hint="modern architecture"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />

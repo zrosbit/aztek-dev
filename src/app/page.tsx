@@ -150,48 +150,59 @@ image: MotoImg,
         className="object-cover"
       />
 
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/70" />
 
       <div className="absolute inset-0 bg-gradient-to-t from-background via-black/30 to-transparent" />
     </div>
   ))}
 
-  <div className="relative z-20 h-full flex items-center justify-center">
-    <div className="max-w-7xl mx-auto px-8 text-center">
-      <div className="space-y-8">
-        <h1 className="text-6xl md:text-[8rem] font-headline font-bold tracking-tight uppercase leading-[0.9] text-white">
-          {heroSlides[currentSlide].title}
-        </h1>
+<div className="relative z-20 h-full flex items-center">
+<div className="w-full px-8 lg:px-32">
+      <div className="max-w-3xl text-left">
 
-        <p className="max-w-3xl mx-auto text-lg md:text-2xl text-white/80">
-          {heroSlides[currentSlide].subtitle}
-        </p>
-
-        <div className="flex flex-col sm:flex-row justify-center gap-6 pt-6">
-          <Button
-            size="lg"
-            asChild
-            className="h-16 px-14 rounded-full"
-          >
-            <Link href="/partners/apply">
-              Become A Partner
-            </Link>
-          </Button>
-
-          <Button
-            variant="outline"
-            size="lg"
-            asChild
-            className="h-16 px-14 rounded-full border-white text-white hover:bg-white hover:text-black"
-          >
-            <Link href="/solutions/automotive">
-              Explore Solutions
-            </Link>
-          </Button>
-        </div>
+      <div className="flex items-center gap-4 mb-8">
+        <div className="w-10 h-px bg-white/40"></div>
+        <span className="text-[11px] uppercase tracking-[0.4em] text-white/60">
+          Surface Engineering Redefined
+        </span>
       </div>
+
+<h1 className="text-white font-extralight leading-[0.95] tracking-[-0.03em] text-4xl md:text-5xl lg:text-[4.5rem]">
+          Protection
+        <br />
+        Technology
+        <br />
+        <span className="text-white/70">
+          For Every Surface
+        </span>
+      </h1>
+
+      <p className="mt-10 max-w-2xl text-lg text-white/70 leading-relaxed">
+        Advanced molecular protection solutions for elite automotive,
+        motorcycle and commercial architectural environments —
+        delivered through a global ecosystem of certified partners.
+      </p>
+
+      <div className="flex flex-wrap gap-4 mt-12">
+      <Button
+        size="lg"
+        className="h-14 px-10 rounded-none bg-[#2563FF] hover:bg-[#3B82F6] text-white shadow-lg shadow-blue-500/30 transition-all duration-300"
+      >
+        Become A Partner
+      </Button>
+
+        <Button
+          variant="outline"
+          size="lg"
+          className="h-14 px-10 rounded-none border-white/30 text-white bg-transparent"
+        >
+          Explore Solutions
+        </Button>
+      </div>
+
     </div>
   </div>
+</div>
 
   <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-3">
     {heroSlides.map((_, index) => (
